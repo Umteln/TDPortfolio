@@ -25,10 +25,10 @@ const Contact = () => {
     return (
         <section
             id='contact'
-            className='w-full'
+            className='flex flex-col justify-center items-center w-full  '
         >
-            <h2 className='text-2xl font-semibold underline'>Contact</h2>
-            <div className='bg-[#14213D] rounded-xl'>
+            <h2 className='text-2xl font-semibold underline my-12'>Contact</h2>
+            <div className='bg-[#14213D] rounded-xl  w-full'>
                 <div className='flex flex-col justify-center items-center p-3 mt-3'>
                     <p className='text-2xl font-semibold text-red-600 p-3 mt-2'>
                         Let&apos;s Work Together
