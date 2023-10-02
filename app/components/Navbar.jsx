@@ -108,7 +108,7 @@ const Navbar = () => {
                             </div>
                         </div>
                         <div className='border-b border-gray-300 my-4'>
-                            <p className='w-[85%] md:w-[90%] py-4 text-red-600 font-semibold'>
+                            <p className='w-[85%] md:w-[90%] py-4 text-red-600 text-sm '>
                                 Transforming Blank Spaces
                             </p>
                         </div>
@@ -154,12 +154,6 @@ const Navbar = () => {
                                 Let&#39;s Connect
                             </p>
                             <div className='flex justify-between items-center '>
-                                <Link
-                                    href='#contact'
-                                    className='p-3 rounded-lg border border-transparent text-white bg-red-700 shadow-xl shadow-gray-900 mx-3 hover:bg-red-600 hover:scale-105 ease-in duration-300 cursor-pointer'
-                                >
-                                    <AiOutlineMail size={30} />
-                                </Link>
                                 <Link
                                     href='#contact'
                                     className='p-3 rounded-lg border border-transparent text-white bg-red-700 shadow-xl shadow-gray-900 mx-3 hover:bg-red-600 hover:scale-105 ease-in duration-300 cursor-pointer'

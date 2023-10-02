@@ -5,7 +5,7 @@ const Projects = () => {
     return (
         <section
             id='projects'
-            className='flex flex-col justify-center items-center'
+            className='flex flex-col justify-center items-center w-full'
         >
             <h2 className='text-2xl font-semibold underline'>Projects</h2>
             <Slider />

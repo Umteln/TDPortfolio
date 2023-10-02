@@ -25,7 +25,7 @@ const Contact = () => {
     return (
         <section
             id='contact'
-            className=''
+            className='w-full'
         >
             <h2 className='text-2xl font-semibold underline'>Contact</h2>
             <div className='bg-[#14213D] rounded-xl'>
