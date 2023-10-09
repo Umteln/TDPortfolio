@@ -1,5 +1,5 @@
 import React from 'react';
-import { projects } from '../objectsAndArrays/arrays';
+import { projects } from '@/app/objectsAndArrays/arrays';
 import Image from 'next/image';
 
 const Murals = () => {
@@ -15,9 +15,10 @@ const Murals = () => {
                 {murals.map((mural) => (
                     <div
                         key={mural.name}
-                        className='flex flex-col p-6 bg-[#14213D] rounded-lg justify-center items-center'
+                        className='flex flex-col p-6 bg-[#14213D] rounded-lg justify-center items-center text-white'
                     >
-                        <div className='flex  justify-center items-center '>
+                        <h3 className='text-2xl font-semibold'>{mural.name}</h3>
+                        <div className='flex  justify-center items-center p-3'>
                             <Image
                                 src={mural.img}
                                 alt='mural'
@@ -25,10 +26,14 @@ const Murals = () => {
                                 height={400}
                             />
                         </div>
-
-                        <p className='text-sm leading-6 text-white'>
-                            {mural.desc}
-                        </p>
+                        <div className='flex flex-col justify-center items-center text-center mt-6'>
+                            <h6 className='font-semibold text-md text-[#e85605]'>
+                                Description
+                            </h6>
+                            <p className='text-sm leading-6 p-3'>
+                                {mural.desc}
+                            </p>
+                        </div>
                     </div>
                 ))}
             </div>

@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
     content: [
         './app/**/*.{js,ts,jsx,tsx,mdx}',
@@ -10,6 +11,16 @@ module.exports = {
     ],
     theme: {
         extend: {},
+        screens: {
+            sm: '580px',
+            md: '768px',
+            lg: '976px',
+            xl: '1440px',
+        },
+        fontFamily: {
+            sans: ['Graphik', 'sans-serif'],
+            serif: ['Merriweather', 'serif'],
+        },
     },
     plugins: [],
 };

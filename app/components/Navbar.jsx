@@ -11,38 +11,15 @@ import {
     AiOutlineTwitter,
 } from 'react-icons/ai';
 
-// import { useRouter } from 'next/router';
-
 const Navbar = () => {
     const [nav, setNav] = useState(false);
-
-    // const router = useRouter();
-
-    // useEffect(() => {
-    //   if (
-    //     router.asPath === '/property' ||
-    //     router.asPath === '/crypto' ||
-    //     router.asPath === '/netflix' ||
-    //     router.asPath === '/twitch'
-    //   ) {
-    //     setNavBg('transparent');
-    //     setLinkColor('#ecf0f3');
-    //   } else {
-    //     setNavBg('#ecf0f3');
-    //     setLinkColor('#1f2937');
-    //   }
-    // }, [router]);
 
     const handleNav = () => {
         setNav(!nav);
     };
 
     return (
-        <nav
-            className={
-                'bg-[#14213D] fixed w-full h-20 shadow-xl z-[100] ease-in-out duration-300 text-white m-auto'
-            }
-        >
+        <nav className='bg-[#2e1172] fixed w-full h-20 shadow-xl z-[100] ease-in-out duration-300 text-[#fff] m-auto'>
             <div className='flex justify-between items-center w-full h-full px-2 2xl:px-16'>
                 <Link href='/'>
                     <p className=' text-white font-bold text-lg cursor-pointer'>
@@ -67,9 +44,8 @@ const Navbar = () => {
                     </ul>
                     {/* Hamburger Icon */}
                     <div
-                        style={{ color: '#fff' }}
                         onClick={handleNav}
-                        className='md:hidden'
+                        className='text-white md:hidden'
                     >
                         <AiOutlineMenu size={25} />
                     </div>
@@ -89,33 +65,33 @@ const Navbar = () => {
                 <div
                     className={
                         nav
-                            ? ' fixed left-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-[#14213D] p-10 ease-in duration-500'
+                            ? ' fixed left-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-[#2e1172] p-3 ease-in duration-500 '
                             : 'fixed left-[-100%] top-0 p-10 ease-in duration-500'
                     }
                 >
                     <div>
-                        <div className='flex w-full items-center justify-between'>
+                        <div className='flex w-full items-center justify-between p-10'>
                             <Link href='/'>
-                                <p className='text-3xl font-bold cursor-pointer'>
+                                <p className='text-3xl font-bold cursor-pointer p-3'>
                                     TD
                                 </p>
                             </Link>
                             <div
                                 onClick={handleNav}
-                                className='bg-red-600 rounded-full shadow-lg shadow-gray-900 p-3 cursor-pointer'
+                                className='bg-[#e85605] rounded-full shadow-lg shadow-gray-900 p-3 cursor-pointer'
                             >
                                 <AiOutlineClose />
                             </div>
                         </div>
                         <div className='border-b border-gray-300 my-4'>
-                            <p className='w-[85%] md:w-[90%] py-4 text-red-600 text-sm '>
+                            <p className='w-[85%] md:w-[90%] py-4 text-[#e85605] italic text-md font-semi-bold'>
                                 Transforming Blank Spaces
                             </p>
                         </div>
                     </div>
                     <div className='py-4 flex flex-col'>
                         <ul className='uppercase'>
-                            <Link href='/'>
+                            <Link href='#home'>
                                 <li
                                     onClick={() => setNav(false)}
                                     className='py-4 text-sm'
@@ -123,7 +99,7 @@ const Navbar = () => {
                                     Home
                                 </li>
                             </Link>
-                            <Link href='/#services'>
+                            <Link href='#services'>
                                 <li
                                     onClick={() => setNav(false)}
                                     className='py-4 text-sm'
@@ -131,7 +107,7 @@ const Navbar = () => {
                                     Services
                                 </li>
                             </Link>
-                            <Link href='/#gallery'>
+                            <Link href='#gallery'>
                                 <li
                                     onClick={() => setNav(false)}
                                     className='py-4 text-sm'
@@ -140,7 +116,7 @@ const Navbar = () => {
                                 </li>
                             </Link>
 
-                            <Link href='/#contact'>
+                            <Link href='#contact'>
                                 <li
                                     onClick={() => setNav(false)}
                                     className='py-4 text-sm'
@@ -156,19 +132,19 @@ const Navbar = () => {
                             <div className='flex justify-between items-center '>
                                 <Link
                                     href='#contact'
-                                    className='p-3 rounded-lg border border-transparent text-white bg-red-700 shadow-xl shadow-gray-900 mx-3 hover:bg-red-600 hover:scale-105 ease-in duration-300 cursor-pointer'
+                                    className='p-3 rounded-lg border border-transparent text-white bg-[#e85605] shadow-xl shadow-gray-900 mx-3 hover:bg-red-600 hover:scale-105 ease-in duration-300 cursor-pointer'
                                 >
                                     <AiOutlineInstagram size={30} />
                                 </Link>
                                 <Link
                                     href='#contact'
-                                    className='p-3 rounded-lg border border-transparent text-white bg-red-700 shadow-xl shadow-gray-900 mx-3 hover:bg-red-600 hover:scale-105 ease-in duration-300 cursor-pointer'
+                                    className='p-3 rounded-lg border border-transparent text-white bg-[#e85605] shadow-xl shadow-gray-900 mx-3 hover:bg-red-600 hover:scale-105 ease-in duration-300 cursor-pointer'
                                 >
                                     <AiOutlineLinkedin size={30} />
                                 </Link>
                                 <Link
                                     href='#contact'
-                                    className='p-3 rounded-lg border border-transparent text-white bg-red-700 shadow-xl shadow-gray-900 mx-3 hover:bg-red-600 hover:scale-105 ease-in duration-300 cursor-pointer'
+                                    className='p-3 rounded-lg border border-transparent text-white bg-[#e85605] shadow-xl shadow-gray-900 mx-3 hover:bg-red-600 hover:scale-105 ease-in duration-300 cursor-pointer'
                                 >
                                     <AiOutlineTwitter size={30} />
                                 </Link>

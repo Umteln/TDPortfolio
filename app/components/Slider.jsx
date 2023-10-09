@@ -3,56 +3,36 @@ import React, { useState } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
 import { slides } from '../objectsAndArrays/arrays';
+import Pagination from './Pagination';
+import Image from 'next/image';
 
 const Slider = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage] = useState(1);
 
-    const prevSlide = () => {
-        const isFirstSlide = currentIndex === 0;
-        const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
-        setCurrentIndex(newIndex);
-    };
+    const lastPostIndex = currentPage * postsPerPage;
+    const firstPostIndex = lastPostIndex - postsPerPage;
 
-    const nextSlide = () => {
-        const isLastSlide = currentIndex === slides.length - 1;
-        const newIndex = isLastSlide ? 0 : currentIndex + 1;
-        setCurrentIndex(newIndex);
-    };
-
-    const goToSlide = (slideIndex) => {
-        setCurrentIndex(slideIndex);
-    };
+    const currentPosts = slides.slice(firstPostIndex, lastPostIndex);
 
     return (
-        <div className='max-w-[1400px] h-[500px] w-full  m-auto py-16 px-4 relative group'>
-            <div
-                style={{ backgroundImage: `url(${slides[currentIndex].img})` }}
-                className='w-full h-full rounded-2xl bg-center bg-cover duration-500'
-            ></div>
-            {/* Left Arrow */}
-            <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
-                <BsChevronCompactLeft
-                    onClick={prevSlide}
-                    size={30}
-                />
-            </div>
-            {/* Right Arrow */}
-            <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
-                <BsChevronCompactRight
-                    onClick={nextSlide}
-                    size={30}
-                />
-            </div>
-            <div className='flex top-4 justify-center py-2'>
-                {slides.map((slide, slideIndex) => (
-                    <div
-                        key={slideIndex}
-                        onClick={() => goToSlide(slideIndex)}
-                        className='text-2xl cursor-pointer'
-                    >
-                        <RxDotFilled />
-                    </div>
+        <div className='flex justify-center items-center max-w-[1400px] max-h-[750px] w-full m-auto px-4 relative group'>
+            <div className='flex flex-col justify-center items-center w-full mt-6 relative group gap-6 '>
+                {currentPosts.map((project) => (
+                    <Image
+                        key={project.name}
+                        src={project.img}
+                        alt={project.name}
+                        priority
+                        className='max-w-full max-h-full h-auto w-auto rounded-xlg'
+                    />
                 ))}
+                <Pagination
+                    totalPosts={slides.length + 1}
+                    postsPerPage={postsPerPage}
+                    setCurrentPage={setCurrentPage}
+                    currentPage={currentPage}
+                />
             </div>
         </div>
     );

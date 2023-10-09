@@ -7,7 +7,7 @@ import Link from 'next/link';
 const Services = () => {
     return (
         <section
-            id='#services'
+            id='services'
             className='flex flex-col justify-center items-center'
         >
             <h2 className='text-2xl font-semibold underline'>
@@ -17,9 +17,9 @@ const Services = () => {
             <div className='grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4 pt-20 pb-10 lg:pt-40 lg:pb-20'>
                 {services.map((service) => (
                     <div key={service.name}>
-                        <div className='flex flex-col p-6 bg-[#14213D] rounded-lg justify-center items-center'>
+                        <div className='flex flex-col p-6 bg-[#2e1172] rounded-lg justify-center items-center'>
                             <div className='flex flex-col justify-center items-center text-red-600'>
-                                <BsStarFill className='text-red-600 text-2xl' />
+                                <BsStarFill className='text-[#e85605] text-2xl' />
 
                                 <h3 className='text-lg font-bold mb-2 text-white mt-3 '>
                                     {service.name}
@@ -31,7 +31,7 @@ const Services = () => {
                             </p>
                             <div>
                                 <Link
-                                    className='flex  justify-center items-center text-red-600 gap-3 cursor-pointer hover:text-white p-3'
+                                    className='flex justify-center items-center text-[#e85605] gap-3 cursor-pointer hover:text-red-600 hover:scale-105 ease-in duration-300 p-3'
                                     href={`/${service.page}`}
                                 >
                                     <p> Explore more </p>

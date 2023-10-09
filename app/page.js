@@ -7,18 +7,17 @@ import Projects from './components/Projects';
 
 export default function Home() {
     return (
-        <>
+        <div id='home'>
             <Navbar />
-            <main
-                id='home'
-                className='flex flex-col justify-between items-cent p-[6rem] min-h-[100vh]'
-            >
-                <Header />
-                <Services />
-                <Projects />
-                <Contact />
-            </main>
-            <Footer />
-        </>
+            <div className='flex flex-col justify-between items-cent p-[1rem] max-w-[100vw] max-h-[100vh]'>
+                <main>
+                    <Header />
+                    <Services />
+                    <Projects />
+                    <Contact />
+                </main>
+                <Footer />
+            </div>
+        </div>
     );
 }
