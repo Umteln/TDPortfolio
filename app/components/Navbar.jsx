@@ -29,17 +29,17 @@ const Navbar = () => {
                 <div>
                     <ul className='hidden md:flex text-white'>
                         <li className='ml-10 text-sm uppercase hover:border-b'>
-                            <Link href='/#home'>Home</Link>
+                            <Link href='#home'>Home</Link>
                         </li>
                         <li className='ml-10 text-sm uppercase hover:border-b'>
-                            <Link href='/#services'>Services</Link>
+                            <Link href='#services'>Services</Link>
                         </li>
                         <li className='ml-10 text-sm uppercase hover:border-b'>
-                            <Link href='/#gallery'>Gallery</Link>
+                            <Link href='#projects'>Projects</Link>
                         </li>
 
                         <li className='ml-10 text-sm uppercase hover:border-b'>
-                            <Link href='/#contact'>Contact</Link>
+                            <Link href='#projects'>Contact</Link>
                         </li>
                     </ul>
                     {/* Hamburger Icon */}
@@ -107,7 +107,7 @@ const Navbar = () => {
                                     Services
                                 </li>
                             </Link>
-                            <Link href='#gallery'>
+                            <Link href='#projects'>
                                 <li
                                     onClick={() => setNav(false)}
                                     className='py-4 text-sm'

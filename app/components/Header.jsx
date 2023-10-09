@@ -6,13 +6,18 @@ import {
     AiOutlineTwitter,
 } from 'react-icons/ai';
 import Link from 'next/link';
+import Image from 'next/image';
+import logo from '../assets/td_logo.png';
 
 const Header = () => {
     return (
         <header className='flex flex-col justify-center items-center  w-full h-full p-10 text-[#333] mt-10'>
-            <h1 className='text-3xl md:text-5xl font-bold my-4 '>
-                Tyson Davis
-            </h1>
+            <Image
+                src={logo}
+                alt='Orange and Grey Tyson Davis Logo'
+                className='max-w-full  w-full md:w-1/2'
+            />
+
             <p className='p-3 mb-6 text-lg'>
                 Mural <span className='text-[#e85605] font-bold'>|</span> Logo{' '}
                 <span className='text-[#e85605] font-bold'>|</span> Graphics{' '}

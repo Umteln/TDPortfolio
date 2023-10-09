@@ -1,27 +1,31 @@
 'use client';
-import React, { useState } from 'react';
-import { blankContact } from '../objectsAndArrays/objects';
+import React, { useRef } from 'react';
 import Image from 'next/image';
 import email from '../assets/email.png';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
-    // const contactCollectionRef = collection(db, 'contacts');
-    const [form, setForm] = useState(blankContact);
+    const form = useRef();
 
-    const createContact = async (e) => {
+    const sendEmail = (e) => {
         e.preventDefault();
-        await addDoc(contactCollectionRef, {
-            ...form,
-        });
 
-        alert('submitted');
-        setForm(blankContact);
-    };
-    const handleChange = (event) => {
-        setForm((prevValue) => ({
-            ...prevValue,
-            [event.target.name]: event.target.value,
-        }));
+        emailjs
+            .sendForm(
+                process.env.NEXT_PUBLIC_SERVICE_ID,
+                process.env.NEXT_PUBLIC_TEMPLATE_ID,
+                form.current,
+                process.env.NEXT_PUBLIC_APIKEY
+            )
+            .then(
+                (result) => {
+                    console.log(result.text);
+                    alert('Message Sent');
+                },
+                (error) => {
+                    console.log(error.text);
+                }
+            );
     };
 
     return (
@@ -67,7 +71,10 @@ const Contact = () => {
                     {/* form */}
                     <div className='col-span-3 max-w-full w-full lg:p-4 bg-gray-100 rounded-lg m-8'>
                         <div className='p-3 mt-3'>
-                            <form onSubmit={createContact}>
+                            <form
+                                ref={form}
+                                onSubmit={sendEmail}
+                            >
                                 <div className='flex flex-col py-2'>
                                     <label className='uppercase text-sm py-2 text-[#14213D] font-bold'>
                                         Name
@@ -76,11 +83,9 @@ const Contact = () => {
                                         className='border-2 rounded-lg p-3 flex border-gray-300 w-full'
                                         placeholder='Name'
                                         type='text'
-                                        name='name'
+                                        name='user_name'
                                         id='name'
                                         autoFocus
-                                        onChange={handleChange}
-                                        value={form.name}
                                     />
                                 </div>
 
@@ -92,10 +97,8 @@ const Contact = () => {
                                         className='border-2 rounded-lg p-3 flex border-gray-300'
                                         type='email'
                                         placeholder='Email'
-                                        name='email'
+                                        name='user_email'
                                         id='email'
-                                        onChange={handleChange}
-                                        value={form.email}
                                         autoFocus
                                     />
                                 </div>
@@ -109,8 +112,6 @@ const Contact = () => {
                                         placeholder='Subject'
                                         name='subject'
                                         id='subject'
-                                        onChange={handleChange}
-                                        value={form.subject}
                                         autoFocus
                                     />
                                 </div>
@@ -124,13 +125,14 @@ const Contact = () => {
                                         name='message'
                                         id='message'
                                         placeholder='Hello...'
-                                        onChange={handleChange}
-                                        value={form.message}
                                         autoFocus
                                     ></textarea>
                                 </div>
                                 <div className='flex justify-center items-center'>
-                                    <button className='w-3/4 mt-2 p-3 rounded-lg border border-transparent text-white font-bold bg-[#e85605] shadow-xl  mx-3 hover:bg-red-600 hover:scale-105 ease-in duration-300'>
+                                    <button
+                                        type='submit'
+                                        className='w-3/4 mt-2 p-3 rounded-lg border border-transparent text-white font-bold bg-[#e85605] shadow-xl  mx-3 hover:bg-red-600 hover:scale-105 ease-in duration-300'
+                                    >
                                         Send Message
                                     </button>
                                 </div>
