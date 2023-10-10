@@ -10,6 +10,7 @@ import {
     AiOutlineLinkedin,
     AiOutlineTwitter,
 } from 'react-icons/ai';
+import logo from '../assets/logo.png';
 
 const Navbar = () => {
     const [nav, setNav] = useState(false);
@@ -22,10 +23,13 @@ const Navbar = () => {
         <nav className='bg-[#2e1172] fixed w-full h-20 shadow-xl z-[100] ease-in-out duration-300 text-[#fff] m-auto'>
             <div className='flex justify-between items-center w-full h-full px-2 2xl:px-16'>
                 <Link href='/'>
-                    <p className=' text-white font-bold text-lg cursor-pointer'>
-                        TD
-                    </p>
+                    <Image
+                        src={logo}
+                        alt=''
+                        className='max-w-full w-[150px] h-20 cursor-pointer'
+                    />
                 </Link>
+
                 <div>
                     <ul className='hidden md:flex text-white'>
                         <li className='ml-10 text-sm uppercase hover:border-b'>
@@ -70,12 +74,15 @@ const Navbar = () => {
                     }
                 >
                     <div>
-                        <div className='flex w-full items-center justify-between p-10'>
+                        <div className='flex  w-full items-center justify-between p-10 mx-auto gap-4'>
                             <Link href='/'>
-                                <p className='text-3xl font-bold cursor-pointer p-3'>
-                                    TD
-                                </p>
+                                <Image
+                                    src={logo}
+                                    alt=''
+                                    className='max-w-full w-[100px] h-[100px] cursor-pointer '
+                                />
                             </Link>
+
                             <div
                                 onClick={handleNav}
                                 className='bg-[#e85605] rounded-full shadow-lg shadow-gray-900 p-3 cursor-pointer'
@@ -83,8 +90,8 @@ const Navbar = () => {
                                 <AiOutlineClose />
                             </div>
                         </div>
-                        <div className='border-b border-gray-300 my-4'>
-                            <p className='w-[85%] md:w-[90%] py-4 text-[#e85605] italic text-md font-semi-bold'>
+                        <div className='border-b border-gray-300 '>
+                            <p className='w-[85%] md:w-[90%] py-4 text-[#fff] italic text-md font-semi-bold'>
                                 Transforming Blank Spaces
                             </p>
                         </div>
@@ -125,7 +132,7 @@ const Navbar = () => {
                                 </li>
                             </Link>
                         </ul>
-                        <div className='pt-40'>
+                        <div className='pt-20'>
                             <p className='uppercase tracking-widest  text-white p-3'>
                                 Let&#39;s Connect
                             </p>

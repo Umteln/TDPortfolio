@@ -7,13 +7,13 @@ import {
 } from 'react-icons/ai';
 import Link from 'next/link';
 import Image from 'next/image';
-import logo from '../assets/td_logo.png';
+import td from '../assets/td.png';
 
 const Header = () => {
     return (
         <header className='flex flex-col justify-center items-center  w-full h-full p-10 text-[#333] mt-10'>
             <Image
-                src={logo}
+                src={td}
                 alt='Orange and Grey Tyson Davis Logo'
                 className='max-w-full  w-full md:w-1/2'
             />
